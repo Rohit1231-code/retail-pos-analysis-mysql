@@ -1,0 +1,100 @@
+-- Step 3: Insert synthetic sample data for learning
+USE retail_pos_analysis;
+
+INSERT INTO customers (customer_id, customer_name, city, signup_date) VALUES
+(1, 'Aarav Shah', 'Mumbai', '2024-01-10'),
+(2, 'Isha Patil', 'Pune', '2024-02-14'),
+(3, 'Kabir Joshi', 'Mumbai', '2024-03-05'),
+(4, 'Meera Nair', 'Thane', '2024-03-19'),
+(5, 'Rohan Das', 'Nashik', '2024-04-02'),
+(6, 'Sara Khan', 'Mumbai', '2024-04-22'),
+(7, 'Vivaan Rao', 'Pune', '2024-05-11'),
+(8, 'Anaya Kulkarni', 'Thane', '2024-06-01'),
+(9, 'Arjun Mehta', 'Mumbai', '2024-06-20'),
+(10, 'Diya Fernandes', 'Nashik', '2024-07-08'),
+(11, 'Neil Thomas', 'Pune', '2024-07-21'),
+(12, 'Tara Desai', 'Mumbai', '2024-08-15');
+
+INSERT INTO products (product_id, product_name, category, unit_price, unit_cost) VALUES
+(101, 'Wireless Mouse', 'Electronics', 599.00, 320.00),
+(102, 'USB-C Cable', 'Electronics', 249.00, 90.00),
+(103, 'Notebook Pack', 'Stationery', 180.00, 75.00),
+(104, 'Ball Pen Set', 'Stationery', 120.00, 42.00),
+(105, 'Water Bottle', 'Home', 399.00, 170.00),
+(106, 'Lunch Box', 'Home', 549.00, 260.00),
+(107, 'Coffee Mug', 'Home', 299.00, 110.00),
+(108, 'Bluetooth Speaker', 'Electronics', 1499.00, 900.00),
+(109, 'Desk Organizer', 'Stationery', 349.00, 145.00),
+(110, 'LED Desk Lamp', 'Home', 899.00, 480.00);
+
+INSERT INTO orders (order_id, customer_id, order_date, payment_method, order_status) VALUES
+(1001, 1, '2025-01-05', 'UPI', 'Completed'),
+(1002, 2, '2025-01-08', 'Card', 'Completed'),
+(1003, 3, '2025-01-15', 'Cash', 'Completed'),
+(1004, 1, '2025-02-02', 'UPI', 'Completed'),
+(1005, 4, '2025-02-10', 'Card', 'Completed'),
+(1006, 5, '2025-02-19', 'UPI', 'Cancelled'),
+(1007, 6, '2025-03-03', 'Cash', 'Completed'),
+(1008, 7, '2025-03-12', 'UPI', 'Completed'),
+(1009, 2, '2025-03-20', 'Card', 'Completed'),
+(1010, 8, '2025-04-04', 'UPI', 'Completed'),
+(1011, 9, '2025-04-15', 'Card', 'Completed'),
+(1012, 1, '2025-04-26', 'UPI', 'Completed'),
+(1013, 10, '2025-05-06', 'Cash', 'Completed'),
+(1014, 11, '2025-05-18', 'UPI', 'Completed'),
+(1015, 12, '2025-05-25', 'Card', 'Pending'),
+(1016, 3, '2025-06-02', 'UPI', 'Completed'),
+(1017, 4, '2025-06-13', 'Cash', 'Completed'),
+(1018, 6, '2025-06-24', 'Card', 'Completed'),
+(1019, 7, '2025-07-05', 'UPI', 'Completed'),
+(1020, 9, '2025-07-19', 'Card', 'Completed');
+
+INSERT INTO order_items
+(order_item_id, order_id, product_id, quantity, unit_price, discount_amount) VALUES
+(1, 1001, 101, 1, 599.00, 0.00),
+(2, 1001, 103, 2, 180.00, 20.00),
+(3, 1002, 108, 1, 1499.00, 100.00),
+(4, 1002, 102, 2, 249.00, 0.00),
+(5, 1003, 105, 1, 399.00, 0.00),
+(6, 1003, 104, 2, 120.00, 0.00),
+(7, 1004, 106, 1, 549.00, 50.00),
+(8, 1004, 101, 1, 599.00, 0.00),
+(9, 1005, 110, 1, 899.00, 0.00),
+(10, 1005, 107, 2, 299.00, 30.00),
+(11, 1006, 108, 1, 1499.00, 0.00),
+(12, 1007, 102, 3, 249.00, 0.00),
+(13, 1007, 103, 1, 180.00, 0.00),
+(14, 1008, 105, 2, 399.00, 40.00),
+(15, 1008, 109, 1, 349.00, 0.00),
+(16, 1009, 101, 1, 599.00, 50.00),
+(17, 1009, 104, 3, 120.00, 0.00),
+(18, 1010, 106, 1, 549.00, 0.00),
+(19, 1010, 103, 2, 180.00, 0.00),
+(20, 1011, 108, 1, 1499.00, 150.00),
+(21, 1011, 102, 1, 249.00, 0.00),
+(22, 1012, 110, 1, 899.00, 50.00),
+(23, 1012, 107, 1, 299.00, 0.00),
+(24, 1013, 104, 2, 120.00, 0.00),
+(25, 1013, 109, 1, 349.00, 0.00),
+(26, 1014, 103, 3, 180.00, 30.00),
+(27, 1014, 105, 1, 399.00, 0.00),
+(28, 1015, 101, 1, 599.00, 0.00),
+(29, 1016, 102, 2, 249.00, 0.00),
+(30, 1016, 108, 1, 1499.00, 0.00),
+(31, 1017, 106, 1, 549.00, 0.00),
+(32, 1017, 104, 1, 120.00, 0.00),
+(33, 1018, 107, 2, 299.00, 0.00),
+(34, 1018, 109, 1, 349.00, 25.00),
+(35, 1019, 105, 1, 399.00, 0.00),
+(36, 1019, 103, 2, 180.00, 0.00),
+(37, 1020, 110, 1, 899.00, 0.00),
+(38, 1020, 101, 1, 599.00, 0.00);
+
+INSERT INTO returns
+(return_id, order_item_id, return_date, quantity_returned, refund_amount, return_reason) VALUES
+(501, 3, '2025-01-15', 1, 1399.00, 'Damaged'),
+(502, 9, '2025-02-15', 1, 899.00, 'Not as expected'),
+(503, 14, '2025-03-20', 1, 379.00, 'Damaged'),
+(504, 20, '2025-04-20', 1, 1349.00, 'Defective'),
+(505, 26, '2025-05-22', 1, 150.00, 'Wrong item'),
+(506, 33, '2025-06-30', 1, 299.00, 'Not as expected');
